@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="B04.EE.BlanckeK.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:B04.EE.BlanckeK.UWP"
+    RequestedTheme="Light">
+
+</Application>
