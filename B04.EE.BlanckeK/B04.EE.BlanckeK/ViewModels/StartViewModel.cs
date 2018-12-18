@@ -9,18 +9,38 @@ namespace B04.EE.BlanckeK.ViewModels
 {
     public class StartViewModel : FreshBasePageModel
     {
+        int _time = DateTime.Now.Hour;
 
         protected override void ViewIsAppearing(object sender, EventArgs e)
         {
             base.ViewIsAppearing(sender, e);
-            DependencyService.Get<ITextToSpeech>().Speak("Welkom bij leren lezen!");
+            Begroet();
         }
 
-        public ICommand StartSpelCommand => new Command(
-            () =>
+
+        public ICommand StartSpelCommand => new Command(() =>
+        {
+            DependencyService.Get<ITextToSpeech>().Speak("Gelieve u leeftijd en niveau in te vullen");
+            CoreMethods.PushPageModel<GegevensViewModel>();
+
+        });
+
+        public void Begroet()
+        {
+
+            if (_time > 5 && _time <= 10)
             {
-                DependencyService.Get<ITextToSpeech>().Speak("Gelieve u leeftijd en niveau in te vullen");
-                CoreMethods.PushPageModel<GegevensViewModel>();
-            });
+                DependencyService.Get<ITextToSpeech>().Speak("Goeiemorgen");
+            }
+            else if (_time > 10 && _time <= 17)
+            {
+                DependencyService.Get<ITextToSpeech>().Speak("Goeiemiddag");
+            }
+            else
+            {
+                DependencyService.Get<ITextToSpeech>().Speak("Goeie avond");
+            }
+        }
+
     }
 }

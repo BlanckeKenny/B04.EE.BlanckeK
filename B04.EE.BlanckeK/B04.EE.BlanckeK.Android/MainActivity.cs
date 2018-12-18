@@ -1,5 +1,7 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
+using Android.Speech.Tts;
 
 namespace B04.EE.BlanckeK.Droid
 {
@@ -16,6 +18,22 @@ namespace B04.EE.BlanckeK.Droid
             Instance = this;
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+
+        }
+
+        protected override void OnActivityResult(int req, Result res, Intent data)
+        {
+            var installTts = new Intent();
+            installTts.SetAction(TextToSpeech.Engine.ActionCheckTtsData);
+            StartActivity(installTts);
+
+            if (req == 103)
+            {
+                // we need a new language installed
+                var installTTS = new Intent();
+                installTTS.SetAction(TextToSpeech.Engine.ActionInstallTtsData);
+                StartActivity(installTTS);
+            }
         }
     }
 }
