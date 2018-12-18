@@ -15,13 +15,22 @@ namespace B04.EE.BlanckeK.UWP.Services
     {
         public async void Speak(string text)
         {
+            using (SpeechSynthesizer synthesizer = new SpeechSynthesizer())
+            {
+                synthesizer.Options.IncludeWordBoundaryMetadata = true;
+                synthesizer.Options.IncludeSentenceBoundaryMetadata = true;
                 MediaElement mediaElement = new MediaElement();
-                var synth = new SpeechSynthesizer();
-
-                var stream = await synth.SynthesizeTextToStreamAsync(text);
-
+                var stream = await synthesizer.SynthesizeTextToStreamAsync(text);
+                
                 mediaElement.SetSource(stream, stream.ContentType);
                 mediaElement.Play();
+            }
+                
+            
+            
+
+
+                
         }
     }
 }

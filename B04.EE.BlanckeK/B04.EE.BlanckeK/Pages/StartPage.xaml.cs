@@ -8,7 +8,6 @@ namespace B04.EE.BlanckeK.Pages
         public StartPage()
         {
             InitializeComponent();
-            DependencyService.Get<ITextToSpeech>().Speak("test");
         }
     }
 }

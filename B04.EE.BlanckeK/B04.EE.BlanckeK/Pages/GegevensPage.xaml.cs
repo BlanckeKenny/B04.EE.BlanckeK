@@ -10,8 +10,7 @@ namespace B04.EE.BlanckeK.Pages
 	{
 		public GegevensPage ()
 		{
-			InitializeComponent ();
-		    DependencyService.Get<ITextToSpeech>().Speak("Welkom bij Leren lezen");
-        }
+		    InitializeComponent();
+		}
 	}
 }

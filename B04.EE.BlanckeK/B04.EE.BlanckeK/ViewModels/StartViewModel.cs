@@ -13,12 +13,13 @@ namespace B04.EE.BlanckeK.ViewModels
         protected override void ViewIsAppearing(object sender, EventArgs e)
         {
             base.ViewIsAppearing(sender, e);
+            DependencyService.Get<ITextToSpeech>().Speak("Welkom bij leren lezen!");
         }
 
         public ICommand StartSpelCommand => new Command(
             () =>
             {
-                DependencyService.Get<ITextToSpeech>().Speak("Welkom bij Leren lezen");
+                DependencyService.Get<ITextToSpeech>().Speak("Gelieve u leeftijd en niveau in te vullen");
                 CoreMethods.PushPageModel<GegevensViewModel>();
             });
     }
