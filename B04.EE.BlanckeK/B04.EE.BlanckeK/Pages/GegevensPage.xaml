@@ -9,10 +9,28 @@
         </x:OnPlatform>
     </ContentPage.BackgroundImage>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Tegen morgen is dit in order!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="8*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Picker x:Name="NiveauPicker" VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="1" SelectedIndexChanged="NiveauPicker_OnSelectedIndexChanged"></Picker>
+                    <Entry x:Name="Naam" Text="{Binding Naam}" TextColor="Accent" PlaceholderColor="Accent" Grid.Row="2" Grid.Column="1" Placeholder="Naam" Keyboard="Text" VerticalOptions="CenterAndExpand" TextChanged="Entry_OnTextChanged" />
+                    <Entry x:Name="Leeftijd" Text="{Binding Leeftijd}" TextColor="Accent" PlaceholderColor="Accent" Grid.Row="3" Grid.Column="1" Placeholder="Leeftijd" Keyboard="Numeric" VerticalOptions="CenterAndExpand" TextChanged="Entry_OnTextChanged" />
+                    <Button CornerRadius="20" BorderWidth="6" BorderColor="IndianRed" BackgroundColor="DarkRed" TextColor="LightGreen" Grid.Row="4" Grid.Column="1" Text="Ga verder" Command ="{Binding StartNewGameCommand}"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
