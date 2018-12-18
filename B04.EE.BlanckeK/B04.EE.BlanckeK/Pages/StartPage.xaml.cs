@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using B04.EE.BlanckeK.Interfaces;
+using Xamarin.Forms;
 
 namespace B04.EE.BlanckeK.Pages
 {
@@ -7,6 +8,7 @@ namespace B04.EE.BlanckeK.Pages
         public StartPage()
         {
             InitializeComponent();
+            DependencyService.Get<ITextToSpeech>().Speak("test");
         }
     }
 }
