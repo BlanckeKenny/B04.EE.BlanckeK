@@ -9,7 +9,7 @@ namespace B04.EE.BlanckeK.ViewModels
 {
     public class StartViewModel : FreshBasePageModel
     {
-        int _time = DateTime.Now.Hour;
+        readonly int _time = DateTime.Now.Hour;
 
         protected override void ViewIsAppearing(object sender, EventArgs e)
         {
@@ -24,7 +24,7 @@ namespace B04.EE.BlanckeK.ViewModels
             await CoreMethods.PushPageModel<GegevensViewModel>();
         });
 
-        public void Begroet()
+        private void Begroet()
         {
 
             if (_time > 5 && _time <= 10)

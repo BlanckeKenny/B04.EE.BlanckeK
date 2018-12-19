@@ -6,6 +6,5 @@
         public string VerkeerdeAfbeelding1 { get; set; }
         public string VerkeerdeAfbeelding2 { get; set; }
         public string Woord { get; set; }
-
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using B04.EE.BlanckeK.Models;
 
@@ -99,7 +100,10 @@ namespace B04.EE.BlanckeK.Interfaces.Mock
         async Task<List<ZoekAfbeeldingSpel>> IGameService.ZoekAfbeeldingSpelLijst()
         {
             await Task.Delay(0);
-            return ZoekAfbeeldingSpelLijst;
+            var rnd = new Random();
+            List<ZoekAfbeeldingSpel> nietGesorteerdeLijst = ZoekAfbeeldingSpelLijst;
+            var result = nietGesorteerdeLijst.OrderBy(item => rnd.Next());
+            return result.ToList();
         }
 
         public Task<List<ZoekWoordSpel>> ZoekWoordSpelLijst()
