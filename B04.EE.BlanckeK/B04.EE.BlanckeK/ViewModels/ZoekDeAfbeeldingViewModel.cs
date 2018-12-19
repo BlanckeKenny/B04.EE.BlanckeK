@@ -9,7 +9,7 @@ namespace B04.EE.BlanckeK.ViewModels
     {
         private Gebruiker _huidigeGebruiker;
         private IGameService _gameService;
-        private IEnumerable<ZoekAfbeeldingSpel> _spelLijst = new List<ZoekAfbeeldingSpel>();
+        private List<ZoekAfbeeldingSpel> _spelLijst = new List<ZoekAfbeeldingSpel>();
 
         public ZoekDeAfbeeldingViewModel(IGameService gameService)
         {

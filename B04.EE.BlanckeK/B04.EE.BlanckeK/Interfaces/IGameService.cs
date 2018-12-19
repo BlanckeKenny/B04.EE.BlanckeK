@@ -6,8 +6,8 @@ namespace B04.EE.BlanckeK.Interfaces
 {
     public interface IGameService
     {
-        Task<IEnumerable<ZoekAfbeeldingSpel>> ZoekAfbeeldingSpelLijst();
-        Task<IEnumerable<ZoekWoordSpel>> ZoekWoordSpelLijst();
-        Task<IEnumerable<VulWoordAanSpel>> VulWoordAanSpelLijst();
+        Task<List<ZoekAfbeeldingSpel>> ZoekAfbeeldingSpelLijst();
+        Task<List<ZoekWoordSpel>> ZoekWoordSpelLijst();
+        Task<List<VulWoordAanSpel>> VulWoordAanSpelLijst();
     }
 }

@@ -96,18 +96,18 @@ namespace B04.EE.BlanckeK.Interfaces.Mock
             return zoekspelLijst;
         }
 
-        async Task<IEnumerable<ZoekAfbeeldingSpel>> IGameService.ZoekAfbeeldingSpelLijst()
+        async Task<List<ZoekAfbeeldingSpel>> IGameService.ZoekAfbeeldingSpelLijst()
         {
             await Task.Delay(0);
             return ZoekAfbeeldingSpelLijst;
         }
 
-        public Task<IEnumerable<ZoekWoordSpel>> ZoekWoordSpelLijst()
+        public Task<List<ZoekWoordSpel>> ZoekWoordSpelLijst()
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<VulWoordAanSpel>> VulWoordAanSpelLijst()
+        public Task<List<VulWoordAanSpel>> VulWoordAanSpelLijst()
         {
             throw new NotImplementedException();
         }
