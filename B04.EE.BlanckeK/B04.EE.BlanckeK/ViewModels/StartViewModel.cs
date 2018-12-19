@@ -18,11 +18,10 @@ namespace B04.EE.BlanckeK.ViewModels
         }
 
 
-        public ICommand StartSpelCommand => new Command(() =>
+        public ICommand StartSpelCommand => new Command(async () =>
         {
-            DependencyService.Get<ITextToSpeech>().Speak("Gelieve u leeftijd en niveau in te vullen");
-            CoreMethods.PushPageModel<GegevensViewModel>();
-
+            DependencyService.Get<ITextToSpeech>().Speak("Gelieve u naam en leeftijd in te vullen");
+            await CoreMethods.PushPageModel<GegevensViewModel>();
         });
 
         public void Begroet()

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="B04.EE.BlanckeK.Pages.ZoekHetWoordPage">
+    <ContentPage.BackgroundImage>
+        <x:OnPlatform 
+            Android="pandabackground.png" 
+            UWP="Assets/pandabackground.png">
+        </x:OnPlatform>
+    </ContentPage.BackgroundImage>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid HeightRequest="50" BackgroundColor="Accent">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="30"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding GebruikersNaam}"></Label>
+                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding HuidigeScore}"></Label>
+                    <Label Grid.Row="1" Grid.Column="2" Text="{Binding HuidigLevel}"></Label>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

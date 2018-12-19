@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace B04.EE.BlanckeK.Models
+﻿namespace B04.EE.BlanckeK.Models
 {
     public enum Niveau
     {

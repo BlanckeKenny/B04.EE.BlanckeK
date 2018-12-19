@@ -1,4 +1,6 @@
-﻿using B04.EE.BlanckeK.ViewModels;
+﻿using B04.EE.BlanckeK.Interfaces;
+using B04.EE.BlanckeK.Interfaces.Mock;
+using B04.EE.BlanckeK.ViewModels;
 using FreshMvvm;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +13,7 @@ namespace B04.EE.BlanckeK
         public App()
         {
             InitializeComponent();
-           
+            FreshIOC.Container.Register<IGameService, SpelInMemoryService>();
             MainPage = new FreshNavigationContainer(FreshPageModelResolver.ResolvePageModel<StartViewModel>());
         }
 

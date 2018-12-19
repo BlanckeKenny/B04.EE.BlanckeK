@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:B04.EE.BlanckeK.Pages"
              x:Class="B04.EE.BlanckeK.Pages.GegevensPage">
     <ContentPage.BackgroundImage>
         <x:OnPlatform 
@@ -11,23 +12,22 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Grid>
+                <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"></ColumnDefinition>
                         <ColumnDefinition Width="8*"></ColumnDefinition>
                         <ColumnDefinition Width="2*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="3*"></RowDefinition>
-                        <RowDefinition Height="1*"></RowDefinition>
-                        <RowDefinition Height="1*"></RowDefinition>
-                        <RowDefinition Height="1*"></RowDefinition>
-                        <RowDefinition Height="1*"></RowDefinition>
-                        <RowDefinition Height="3*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Picker x:Name="NiveauPicker" VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="1" SelectedIndexChanged="NiveauPicker_OnSelectedIndexChanged"></Picker>
-                    <Entry x:Name="Naam" Text="{Binding Naam}" TextColor="Accent" PlaceholderColor="Accent" Grid.Row="2" Grid.Column="1" Placeholder="Naam" Keyboard="Text" VerticalOptions="CenterAndExpand" TextChanged="Entry_OnTextChanged" />
-                    <Entry x:Name="Leeftijd" Text="{Binding Leeftijd}" TextColor="Accent" PlaceholderColor="Accent" Grid.Row="3" Grid.Column="1" Placeholder="Leeftijd" Keyboard="Numeric" VerticalOptions="CenterAndExpand" TextChanged="Entry_OnTextChanged" />
+                    <Entry x:Name="Naam" Text="{Binding Naam}" TextColor="Accent" PlaceholderColor="Accent" Grid.Row="2" Grid.Column="1" Placeholder="Naam" Keyboard="Text" VerticalOptions="CenterAndExpand" />
+                    <Entry x:Name="Leeftijd" Text="{Binding Leeftijd}" TextColor="Accent" PlaceholderColor="Accent" Grid.Row="3" Grid.Column="1" Placeholder="Leeftijd" Keyboard="Numeric" VerticalOptions="CenterAndExpand" />
                     <Button CornerRadius="20" BorderWidth="6" BorderColor="IndianRed" BackgroundColor="DarkRed" TextColor="LightGreen" Grid.Row="4" Grid.Column="1" Text="Ga verder" Command ="{Binding StartNewGameCommand}"/>
                 </Grid>
             </StackLayout>

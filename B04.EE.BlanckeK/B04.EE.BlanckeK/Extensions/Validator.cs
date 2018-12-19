@@ -16,5 +16,11 @@ namespace B04.EE.BlanckeK.Extensions
         {
             return leeftijd != 0 && leeftijd < 125;
         }
+
+        public static bool IsInteger(this string integer)
+        {
+            bool.TryParse(integer, out bool isInteger);
+            return isInteger;
+        }
     }
 }

@@ -11,46 +11,47 @@
     </ContentPage.BackgroundImage>
     <ScrollView>
     <StackLayout>
-        <Grid>
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="8*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"></RowDefinition>
-                <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Frame Grid.Column="1" Grid.Row="1" VerticalOptions="EndAndExpand" CornerRadius="30" HasShadow="True" BackgroundColor="AliceBlue" BorderColor="DarkGreen">
-                <StackLayout x:Name="StartSpel" Spacing="7" HorizontalOptions="Center" Orientation="Horizontal">
+            <Frame Grid.Column="1" Grid.Row="1" VerticalOptions="EndAndExpand" CornerRadius="20" HasShadow="True" BackgroundColor="AliceBlue" BorderColor="DarkGreen">
+                <StackLayout x:Name="StartSpel" Spacing="6" HorizontalOptions="Center" Orientation="Horizontal">
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding StartSpelCommand}"></TapGestureRecognizer>
+                            <TapGestureRecognizer Command="{Binding StartSpelCommand}"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>
-                    <Label FontAttributes="Bold" FontSize="25" Text="N" TextColor="GreenYellow"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="i" TextColor="Orange"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="e" TextColor="Red"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="u" TextColor="DeepPink"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="w" TextColor="Brown" Margin="0,0,10,0"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="s" TextColor="OliveDrab"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="p" TextColor="Purple"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="e" TextColor="Brown"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="l" TextColor="DarkOrange"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="N" TextColor="GreenYellow"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="i" TextColor="Orange"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="e" TextColor="Red"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="u" TextColor="DeepPink"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="w" TextColor="Brown" Margin="0,0,10,0"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="s" TextColor="OliveDrab"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="p" TextColor="Purple"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="e" TextColor="Brown"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="l" TextColor="DarkOrange"></Label>
                 </StackLayout>
             </Frame>
-            <Frame Grid.Column="1" Grid.Row="2" VerticalOptions="EndAndExpand" BorderColor="DarkGreen" BackgroundColor="AliceBlue" CornerRadius="30" Margin="50">
-                <StackLayout Spacing="7" x:Name="GaVerder" HorizontalOptions="Center" Orientation="Horizontal">
+            <Frame Grid.Column="1" Grid.Row="2" VerticalOptions="EndAndExpand" BorderColor="DarkGreen" BackgroundColor="AliceBlue" CornerRadius="20">
+                <StackLayout Spacing="6" x:Name="GaVerder" HorizontalOptions="Center" Orientation="Horizontal">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding GaVerderCommand}"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>
-                    <Label FontAttributes="Bold" FontSize="25" Text="G" TextColor="GreenYellow"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="a" TextColor="DarkMagenta" Margin="0,0,10,0"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="v" TextColor="DeepPink"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="e" TextColor="Red"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="r" TextColor="YellowGreen"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="d" TextColor="LightCoral"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="e" TextColor="Purple"></Label>
-                    <Label FontAttributes="Bold" FontSize="25" Text="r" TextColor="OliveDrab"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="G" TextColor="GreenYellow"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="a" TextColor="DarkMagenta" Margin="0,0,10,0"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="v" TextColor="DeepPink"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="e" TextColor="Red"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="r" TextColor="YellowGreen"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="d" TextColor="LightCoral"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="e" TextColor="Purple"></Label>
+                    <Label FontAttributes="Bold" FontSize="16" Text="r" TextColor="OliveDrab"></Label>
                 </StackLayout>
             </Frame>
         </Grid>

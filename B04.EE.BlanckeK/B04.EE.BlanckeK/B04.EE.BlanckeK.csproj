@@ -10,14 +10,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="8.1.2" />
     <PackageReference Include="FreshMvvm" Version="2.2.4" />
     <PackageReference Include="Xam.Plugins.TextToSpeech" Version="4.0.0.7" />
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Pages\SpelSelectiePage.xaml.cs">
+      <DependentUpon>SpelSelectiePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ZoekHetWoordPage.xaml.cs">
+      <DependentUpon>ZoekHetWoordPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -48,6 +55,18 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Pages\GegevensPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\SpelSelectiePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\VulHetWoordAanPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\ZoekDeAfbeeldingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\ZoekHetWoordPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

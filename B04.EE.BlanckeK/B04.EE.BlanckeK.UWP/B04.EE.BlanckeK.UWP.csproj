@@ -109,9 +109,32 @@
     <Content Include="Assets\BadgeLogo.scale-150.png" />
     <Content Include="Assets\BadgeLogo.scale-200.png" />
     <Content Include="Assets\BadgeLogo.scale-400.png" />
+    <Content Include="Assets\dieren\aap.jpg" />
+    <Content Include="Assets\dieren\bij.jpg" />
+    <Content Include="Assets\dieren\eend.jpg" />
+    <Content Include="Assets\dieren\ezel.jpg" />
+    <Content Include="Assets\dieren\geit.jpg" />
+    <Content Include="Assets\dieren\hond.jpg" />
+    <Content Include="Assets\dieren\kat.jpg" />
+    <Content Include="Assets\dieren\kikker.jpg" />
+    <Content Include="Assets\dieren\kip.jpg" />
+    <Content Include="Assets\dieren\koe.jpg" />
+    <Content Include="Assets\dieren\konijn.jpg" />
+    <Content Include="Assets\dieren\leeuw.jpg" />
+    <Content Include="Assets\dieren\mug.jpg" />
+    <Content Include="Assets\dieren\muis.jpg" />
+    <Content Include="Assets\dieren\paard.jpg" />
+    <Content Include="Assets\dieren\panda.jpg" />
+    <Content Include="Assets\dieren\pet.jpg" />
+    <Content Include="Assets\dieren\slak.jpg" />
+    <Content Include="Assets\dieren\uil.jpg" />
+    <Content Include="Assets\dieren\vis.jpg" />
+    <Content Include="Assets\dieren\vogel.png" />
+    <Content Include="Assets\dieren\vos.jpg" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\pandabackground.png" />
     <Content Include="Assets\SmallTile.scale-100.png" />
     <Content Include="Assets\SmallTile.scale-200.png" />
     <Content Include="Assets\SmallTile.scale-400.png" />
@@ -158,6 +181,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="FluentValidation">
+      <Version>8.1.2</Version>
+    </PackageReference>
     <PackageReference Include="Xam.Plugins.TextToSpeech">
       <Version>4.0.0.7</Version>
     </PackageReference>
