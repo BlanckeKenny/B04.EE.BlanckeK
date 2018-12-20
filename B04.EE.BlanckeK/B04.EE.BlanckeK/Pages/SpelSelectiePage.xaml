@@ -1,18 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="clr-namespace:B04.EE.BlanckeK.Pages"
              x:Class="B04.EE.BlanckeK.Pages.SpelSelectiePage">
-    <ContentPage.BackgroundImage>
-        <x:OnPlatform 
-            Android="startpagebackground.jpg" 
-            UWP="Assets/StartPageBackGround.jpg">
-        </x:OnPlatform>
+    <ContentPage.BackgroundImage><x:OnPlatform Android="startpagebackground.jpg" UWP="Assets/StartPageBackGround.jpg"></x:OnPlatform>
     </ContentPage.BackgroundImage>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
                 <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <!-- Grid definities selecteer spel pagina -->
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"></ColumnDefinition>
                         <ColumnDefinition Width="8*"></ColumnDefinition>
@@ -25,67 +21,70 @@
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
+                    <!-- Grid van Zoek de afbeelding button-->
                     <Frame Grid.Column="1" Grid.Row="1" VerticalOptions="EndAndExpand" CornerRadius="20" HasShadow="True" BackgroundColor="AliceBlue" BorderColor="DarkGreen">
                         <StackLayout x:Name="ZoekDeAfbeelingStackLayout" Spacing="6" HorizontalOptions="Center" Orientation="Horizontal">
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding ZoekDeAfBeeldingCommand}"></TapGestureRecognizer>
                             </StackLayout.GestureRecognizers>
-                            <Label FontAttributes="Bold" FontSize="16" Text="Z" TextColor="GreenYellow"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="o" TextColor="DarkOrange"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="e" TextColor="Red"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="k" TextColor="DeepPink" Margin="0,0,10,0"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="d" TextColor="Brown" ></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="e" TextColor="OliveDrab" Margin="0,0,10,0"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="A" TextColor="Purple"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="f" TextColor="Brown"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="b" TextColor="GreenYellow"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="e" TextColor="DarkOrange"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="e" TextColor="Red"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="l" TextColor="DeepPink"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="d" TextColor="Brown"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="i" TextColor="OliveDrab"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="n" TextColor="Purple"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="g" TextColor="GreenYellow"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="Z" TextColor="GreenYellow"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="o" TextColor="DarkOrange"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="e" TextColor="Red"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="k" TextColor="DeepPink" Margin="0,0,10,0"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="d" TextColor="Brown" ></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="e" TextColor="OliveDrab" Margin="0,0,10,0"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="A" TextColor="Purple"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="f" TextColor="Brown"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="b" TextColor="GreenYellow"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="e" TextColor="DarkOrange"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="e" TextColor="Red"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="l" TextColor="DeepPink"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="d" TextColor="Brown"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="i" TextColor="OliveDrab"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="n" TextColor="Purple"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="g" TextColor="GreenYellow"></Label>
                         </StackLayout>
                     </Frame>
+                    <!-- Grid van Zoek het woord button -->
                     <Frame Grid.Column="1" Grid.Row="2" VerticalOptions="EndAndExpand" BorderColor="DarkGreen" BackgroundColor="AliceBlue" CornerRadius="20">
                         <StackLayout Spacing="6" x:Name="ZoekHetWoordLayout" HorizontalOptions="Center" Orientation="Horizontal">
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding ZoekHetWoordSpelCommand}"></TapGestureRecognizer>
                             </StackLayout.GestureRecognizers>
-                            <Label FontAttributes="Bold" FontSize="16" Text="Z" TextColor="DarkOrange"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="o" TextColor="Red"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="e" TextColor="DeepPink"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="k" TextColor="Brown" Margin="0,0,10,0"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="h" TextColor="OliveDrab" ></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="e" TextColor="Purple"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="t" TextColor="Brown" Margin="0,0,10,0"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="w" TextColor="GreenYellow"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="o" TextColor="DarkOrange"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="o" TextColor="Red"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="r" TextColor="DeepPink"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="d" TextColor="Brown"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="Z" TextColor="DarkOrange"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="o" TextColor="Red"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="e" TextColor="DeepPink"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="k" TextColor="Brown" Margin="0,0,10,0"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="h" TextColor="OliveDrab" ></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="e" TextColor="Purple"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="t" TextColor="Brown" Margin="0,0,10,0"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="w" TextColor="GreenYellow"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="o" TextColor="DarkOrange"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="o" TextColor="Red"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="r" TextColor="DeepPink"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="d" TextColor="Brown"></Label>
                         </StackLayout>
                     </Frame>
+                    <!-- Grid van vul het woord aan spel -->
                     <Frame Grid.Column="1" Grid.Row="3" VerticalOptions="EndAndExpand" BorderColor="DarkGreen" BackgroundColor="AliceBlue" CornerRadius="20">
                         <StackLayout Spacing="6" x:Name="VulHetWoordAan" HorizontalOptions="Center" Orientation="Horizontal">
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding VulHetWoordAanSpelCommand}"></TapGestureRecognizer>
                             </StackLayout.GestureRecognizers>
-                            <Label FontAttributes="Bold" FontSize="16" Text="V" TextColor="OliveDrab"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="u" TextColor="Purple"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="l" TextColor="Brown" Margin="0,0,10,0"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="H" TextColor="GreenYellow"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="e" TextColor="DarkOrange"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="t" TextColor="Red" Margin="0,0,10,0"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="w" TextColor="DeepPink"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="o" TextColor="Brown"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="o" TextColor="GreenYellow"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="r" TextColor="DarkOrange"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="d" TextColor="Red" Margin="0,0,10,0"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="a" TextColor="DeepPink"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="a" TextColor="Brown"></Label>
-                            <Label FontAttributes="Bold" FontSize="16" Text="n" TextColor="GreenYellow"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="V" TextColor="OliveDrab"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="u" TextColor="Purple"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="l" TextColor="Brown" Margin="0,0,10,0"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="H" TextColor="GreenYellow"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="e" TextColor="DarkOrange"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="t" TextColor="Red" Margin="0,0,10,0"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="w" TextColor="DeepPink"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="o" TextColor="Brown"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="o" TextColor="GreenYellow"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="r" TextColor="DarkOrange"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="d" TextColor="Red" Margin="0,0,10,0"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="a" TextColor="DeepPink"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="a" TextColor="Brown"></Label>
+                            <Label FontAttributes="Bold" FontSize="13" Text="n" TextColor="GreenYellow"></Label>
                         </StackLayout>
                     </Frame>
                 </Grid>

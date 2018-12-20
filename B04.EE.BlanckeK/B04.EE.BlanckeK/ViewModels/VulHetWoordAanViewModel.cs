@@ -5,18 +5,11 @@ namespace B04.EE.BlanckeK.ViewModels
 {
     public class VulHetWoordAanViewModel :FreshBasePageModel
     {
+        #region variabelen
         private Gebruiker _huidigeGebruiker;
+        #endregion
 
-        public override void Init(object initData)
-        {
-            Gebruiker gebruiker = initData as Gebruiker;
-            _huidigeGebruiker = gebruiker;
-            base.Init(initData);
-            _gebruikersNaam = _huidigeGebruiker.Naam;
-            _score = _huidigeGebruiker.Score;
-
-        }
-
+        #region Properties
         public string HuidigeScore => $"Score : {Score}";
         public string HuidigLevel => $"Level : {Level}";
 
@@ -57,5 +50,17 @@ namespace B04.EE.BlanckeK.ViewModels
                 RaisePropertyChanged(HuidigLevel);
             }
         }
+        #endregion
+
+        #region Overrides
+        public override void Init(object initData)
+        {
+            Gebruiker gebruiker = initData as Gebruiker;
+            _huidigeGebruiker = gebruiker;
+            base.Init(initData);
+            _gebruikersNaam = _huidigeGebruiker.Naam;
+            _score = _huidigeGebruiker.Score;
+        }
+        #endregion
     }
 }

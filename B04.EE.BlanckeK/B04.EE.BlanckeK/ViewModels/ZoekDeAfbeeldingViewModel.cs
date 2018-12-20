@@ -1,42 +1,72 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using B04.EE.BlanckeK.Interfaces;
 using B04.EE.BlanckeK.Models;
 using FreshMvvm;
+using Xamarin.Forms;
 
 namespace B04.EE.BlanckeK.ViewModels
 {
     public class ZoekDeAfbeeldingViewModel : FreshBasePageModel
     {
+        #region Variabelen
         private Gebruiker _huidigeGebruiker;
-        private ZoekAfbeeldingSpel huidigSpel;
-        private IGameService _gameService;
+        public IGameService GameService;
         private List<ZoekAfbeeldingSpel> _spelLijst = new List<ZoekAfbeeldingSpel>();
         private int _teller;
-        private int _spelScore;
+        private int _totaalScore;
+        #endregion
 
+        #region Constructor
         public ZoekDeAfbeeldingViewModel(IGameService gameService)
         {
-            _gameService = gameService;
+            GameService = gameService;
             StartNieuwSpel();
         }
+        #endregion
 
+        #region Methods
         private async void StartNieuwSpel()
         {
-            _spelLijst = await _gameService.ZoekAfbeeldingSpelLijst();
-            _teller = _spelLijst.Count - 1;
-            _spelScore = 0;
-            StartRonde();
+            _teller = 0;
+            _score = 0;
+            _spelLijst = await GameService.ZoekAfbeeldingSpelLijst();
+            NieuweAfbeeldingenEnWoord();
         }
 
-        private void StartRonde()
+        private void NieuweAfbeeldingenEnWoord()
         {
-            JuisteAfbeelding = _spelLijst[_teller].JuisteAfbeelding;
-            VerkeerdeAfbeelding1 = _spelLijst[_teller].VerkeerdeAfbeelding1;
-            VerkeerdeAfbeelding2 = _spelLijst[_teller].VerkeerdeAfbeelding2;
+            switch (Device.RuntimePlatform)
+            {
+                case Device.Android:
+                    JuisteAfbeelding = _spelLijst[_teller].JuisteAfbeelding;
+                    VerkeerdeAfbeelding1 = _spelLijst[_teller].VerkeerdeAfbeelding1;
+                    VerkeerdeAfbeelding2 = _spelLijst[_teller].VerkeerdeAfbeelding2;
+                    break;
+                default:
+                    JuisteAfbeelding = $"Assets/dieren/{_spelLijst[_teller].JuisteAfbeelding}";
+                    VerkeerdeAfbeelding1 = $"Assets/dieren/{_spelLijst[_teller].VerkeerdeAfbeelding1}";
+                    VerkeerdeAfbeelding2 = $"Assets/dieren/{_spelLijst[_teller].VerkeerdeAfbeelding2}";
+                    break;
+            }
             Woord = _spelLijst[_teller].Woord;
+            MessagingCenter.Send(this, Constants.Constants.MixAfbeeldingGrids);
         }
+
+        private void Controleer(string antwoord)
+        {
+            _teller++;
+            if (antwoord == "Juist") Score = Score + 1;
+            HuidigeScore = $"Score: {Score}/{_teller}";
+            RaisePropertyChanged(nameof(HuidigeScore));
+            DependencyService.Get<ITextToSpeech>().Speak(antwoord);
+        }
+        #endregion
+
+        #region properties
+        public string HuidigeScore { get; private set; }
+        public string HuidigLevel => $"Level: {Level}";
 
         private string _woord;
         public string Woord
@@ -48,7 +78,6 @@ namespace B04.EE.BlanckeK.ViewModels
                 RaisePropertyChanged(nameof(Woord));
             }
         }
-
 
         private string _verkeerdeAfbeelding2;
         public string VerkeerdeAfbeelding2
@@ -72,18 +101,7 @@ namespace B04.EE.BlanckeK.ViewModels
             }
         }
 
-
-        private string _gebruikersNaam;
-        public string GebruikersNaam
-        {
-            get => _gebruikersNaam;
-            set
-            {
-                _gebruikersNaam = value;
-                _huidigeGebruiker.Naam = _gebruikersNaam;
-                RaisePropertyChanged(nameof(GebruikersNaam));
-            }
-        }
+        public string GebruikersNaam { get; set; }
 
         private string _juisteAfbeelding;
         public string JuisteAfbeelding
@@ -96,19 +114,6 @@ namespace B04.EE.BlanckeK.ViewModels
             }
         }
 
-        private int _score;
-        public int Score
-        {
-            get => _score;
-            set
-            {
-                _score = value;
-                _huidigeGebruiker.Score = _score;
-                RaisePropertyChanged(nameof(Score));
-                RaisePropertyChanged(HuidigeScore);
-            }
-        }
-
         private int _level;
         public int Level
         {
@@ -116,25 +121,60 @@ namespace B04.EE.BlanckeK.ViewModels
             set
             {
                 _level = value;
-                _huidigeGebruiker.Level = _level;
                 RaisePropertyChanged(nameof(Level));
-                RaisePropertyChanged(HuidigLevel);
+                RaisePropertyChanged(nameof(HuidigLevel));
             }
         }
 
+        private int _score;
+        public int Score
+        {
+            get => _score;
+            set
+            {
+                _score = value;
+                RaisePropertyChanged(nameof(Score));
+            }
+        }
+        #endregion
 
-        public string HuidigeScore => $"Score : {Score}";
-        public string HuidigLevel => $"Level : {Level}";
-
-
+        #region Override's
         public override void Init(object initData)
         {
             Gebruiker gebruiker = initData as Gebruiker;
             _huidigeGebruiker = gebruiker;
             base.Init(initData);
-            _gebruikersNaam = _huidigeGebruiker.Naam;
-            _score = _huidigeGebruiker.Score;
-
+            GebruikersNaam = _huidigeGebruiker.Naam;
+            _level = _huidigeGebruiker.Level;
+            HuidigeScore = $"Score :{Score}/{_teller}";
         }
+        #endregion
+
+        #region Commands
+        public ICommand ControleerCommand => new Command(async (antwoord) =>
+        {
+            await Task.Delay(0);
+            Controleer(antwoord.ToString());
+            if (_teller < _spelLijst.Count) NieuweAfbeeldingenEnWoord();
+            else
+            {
+                if (Score > _teller / 2 + 1)
+                    await CoreMethods.DisplayAlert($"Goed zo u heeft {Score} op {_teller}", "", "Ok");
+                else
+                    await CoreMethods.DisplayAlert($"Nog even oefenen u score was {Score} op {_teller}", "", "Ok");
+                await CoreMethods.PopPageModel();
+                _totaalScore = _huidigeGebruiker.Score + Score;
+                if (_totaalScore >= 30)
+                {
+                    Level++;
+                    _totaalScore = 0;
+                    RaisePropertyChanged(nameof(Level));
+                    RaisePropertyChanged(nameof(HuidigLevel));
+                }
+                _huidigeGebruiker.Score =  _totaalScore;
+                _huidigeGebruiker.Level = Level;
+            }
+        });
+        #endregion
     }
 }

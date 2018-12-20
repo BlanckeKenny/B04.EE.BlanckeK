@@ -1,18 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="clr-namespace:B04.EE.BlanckeK.Pages"
              x:Class="B04.EE.BlanckeK.Pages.GegevensPage">
     <ContentPage.BackgroundImage>
-        <x:OnPlatform 
-            Android="startpagebackground.jpg" 
-            UWP="Assets/StartPageBackGround.jpg">
-        </x:OnPlatform>
+        <x:OnPlatform Android="startpagebackground.jpg" UWP="Assets/StartPageBackGround.jpg"></x:OnPlatform>
     </ContentPage.BackgroundImage>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
                 <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <!-- grid definities -->
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"></ColumnDefinition>
                         <ColumnDefinition Width="8*"></ColumnDefinition>
@@ -26,9 +23,10 @@
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
+                    <!-- Inloggrid -->
                     <Entry x:Name="Naam" Text="{Binding Naam}" TextColor="Accent" PlaceholderColor="Accent" Grid.Row="2" Grid.Column="1" Placeholder="Naam" Keyboard="Text" VerticalOptions="CenterAndExpand" />
                     <Entry x:Name="Leeftijd" Text="{Binding Leeftijd}" TextColor="Accent" PlaceholderColor="Accent" Grid.Row="3" Grid.Column="1" Placeholder="Leeftijd" Keyboard="Numeric" VerticalOptions="CenterAndExpand" />
-                    <Button CornerRadius="20" BorderWidth="6" BorderColor="IndianRed" BackgroundColor="DarkRed" TextColor="LightGreen" Grid.Row="4" Grid.Column="1" Text="Ga verder" Command ="{Binding StartNewGameCommand}"/>
+                    <Button CornerRadius="20" BorderWidth="6" BorderColor="DarkGreen" BackgroundColor="LightGreen" TextColor="IndianRed" Grid.Row="4" Grid.Column="1" Text="Ga verder" Command ="{Binding StartNewGameCommand}"/>
                 </Grid>
             </StackLayout>
         </ScrollView>

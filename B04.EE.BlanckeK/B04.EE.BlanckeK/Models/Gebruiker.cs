@@ -9,6 +9,5 @@ namespace B04.EE.BlanckeK.Models
         public int Level { get; set; }
         public string Naam { get; set; }
         public int Leeftijd { get; set; }
-        public Niveau Niveau { get; set; }
     }
 }

@@ -8,10 +8,7 @@ namespace B04.EE.BlanckeK.Interfaces.Mock
 {
     public class GerbruikerInMemoryService : IGebruikersInterface
     {
-        private static List<Gebruiker> gebruikers = new List<Gebruiker>
-        {
-            new Gebruiker{GebruikersId = Guid.NewGuid(), Leeftijd = 30, Niveau = Niveau.Makkelijk, Naam = "Kenny", Level = 0, Score = 0}
-        };
+        private static List<Gebruiker> gebruikers = new List<Gebruiker>();
 
         public async Task<Gebruiker> ZoekGebruikerMetId(Guid id)
         {

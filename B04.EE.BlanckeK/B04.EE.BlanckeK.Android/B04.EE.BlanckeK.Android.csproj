@@ -175,73 +175,73 @@
     <AndroidResource Include="Resources\drawable\startpagebackground.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\pandabackground.png" />
+    <AndroidResource Include="Resources\drawable\aap.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\aap.jpg" />
+    <AndroidResource Include="Resources\drawable\bij.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\bij.jpg" />
+    <AndroidResource Include="Resources\drawable\eend.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\eend.jpg" />
+    <AndroidResource Include="Resources\drawable\ezel.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\ezel.jpg" />
+    <AndroidResource Include="Resources\drawable\geit.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\geit.jpg" />
+    <AndroidResource Include="Resources\drawable\hond.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\hond.jpg" />
+    <AndroidResource Include="Resources\drawable\kat.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\kat.jpg" />
+    <AndroidResource Include="Resources\drawable\kikker.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\kikker.jpg" />
+    <AndroidResource Include="Resources\drawable\kip.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\kip.jpg" />
+    <AndroidResource Include="Resources\drawable\koe.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\koe.jpg" />
+    <AndroidResource Include="Resources\drawable\konijn.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\konijn.jpg" />
+    <AndroidResource Include="Resources\drawable\leeuw.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\leeuw.jpg" />
+    <AndroidResource Include="Resources\drawable\mug.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\mug.jpg" />
+    <AndroidResource Include="Resources\drawable\muis.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\muis.jpg" />
+    <AndroidResource Include="Resources\drawable\paard.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\paard.jpg" />
+    <AndroidResource Include="Resources\drawable\panda.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\panda.jpg" />
+    <AndroidResource Include="Resources\drawable\pet.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\pet.jpg" />
+    <AndroidResource Include="Resources\drawable\slak.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\slak.jpg" />
+    <AndroidResource Include="Resources\drawable\uil.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\uil.jpg" />
+    <AndroidResource Include="Resources\drawable\vis.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\vis.jpg" />
+    <AndroidResource Include="Resources\drawable\vogel.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\vogel.png" />
+    <AndroidResource Include="Resources\drawable\vos.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dieren\vos.jpg" />
+    <AndroidResource Include="Resources\drawable\pandabackground.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

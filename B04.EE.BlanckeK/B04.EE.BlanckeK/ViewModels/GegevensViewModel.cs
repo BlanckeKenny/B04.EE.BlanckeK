@@ -10,8 +10,10 @@ namespace B04.EE.BlanckeK.ViewModels
 {
     public class GegevensViewModel : FreshBasePageModel
     {
+        #region Variabelen
         private readonly IValidator _gebruikerValidator;
         private Gebruiker _huidigeGebruiker;
+        #endregion
 
         #region Constructor
         public GegevensViewModel()
@@ -19,7 +21,6 @@ namespace B04.EE.BlanckeK.ViewModels
             _gebruikerValidator = new GebruikerValidator();
         }
         #endregion
-
 
         #region Properties
         private string _gebruikersInvoerError;
@@ -93,17 +94,15 @@ namespace B04.EE.BlanckeK.ViewModels
             else 
                 _huidigeGebruiker = new Gebruiker
                 {
-                    Niveau = Niveau.Makkelijk,
                     Naam = Naam,
                     Leeftijd = Leeftijd, 
                     GebruikersId = Guid.NewGuid(),
-                    Level = 0, 
+                    Level = 1, 
                     Score = 0,
                 };
         }
         #endregion
-
-
+       
         #region Commands
         public ICommand StartNewGameCommand => new Command(async () =>
         {

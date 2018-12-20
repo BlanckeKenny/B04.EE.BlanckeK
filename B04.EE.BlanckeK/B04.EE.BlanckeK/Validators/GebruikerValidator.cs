@@ -1,12 +1,11 @@
 ﻿using B04.EE.BlanckeK.Models;
 using FluentValidation;
-using B04.EE.BlanckeK.Extensions;
 
 namespace B04.EE.BlanckeK.Validators
 {
     public class GebruikerValidator : AbstractValidator<Gebruiker>
     {
-        
+        #region Constructor
         public GebruikerValidator()
         {
             RuleFor(gebruiker => gebruiker.Naam)
@@ -24,12 +23,7 @@ namespace B04.EE.BlanckeK.Validators
                 .WithMessage("Ik denk dat u een beetje te jong bent om te leren lezen")
                 .LessThanOrEqualTo(120)
                 .WithMessage("Bent u niet een beetje te oud om nu nog te lezen lezen?");
-
-            RuleFor(gebruiker => gebruiker.Niveau)
-                .NotNull()
-                .WithMessage("Gelieve een niveau te kiezen");
         }
-
-        
+        #endregion
     }
 }

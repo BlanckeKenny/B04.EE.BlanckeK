@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace B04.EE.BlanckeK.Pages
@@ -12,9 +6,11 @@ namespace B04.EE.BlanckeK.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class VulHetWoordAanPage : ContentPage
 	{
-		public VulHetWoordAanPage ()
+        #region Constructor
+        public VulHetWoordAanPage ()
 		{
 			InitializeComponent ();
 		}
-	}
+        #endregion
+    }
 }

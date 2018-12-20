@@ -9,21 +9,27 @@ namespace B04.EE.BlanckeK.ViewModels
 {
     public class StartViewModel : FreshBasePageModel
     {
+        #region variabelen
         readonly int _time = DateTime.Now.Hour;
+        #endregion
 
+        #region Overrides
         protected override void ViewIsAppearing(object sender, EventArgs e)
         {
             base.ViewIsAppearing(sender, e);
             Begroet();
         }
+        #endregion
 
-
+        #region Commands
         public ICommand StartSpelCommand => new Command(async () =>
         {
             DependencyService.Get<ITextToSpeech>().Speak("Gelieve u naam en leeftijd in te vullen");
             await CoreMethods.PushPageModel<GegevensViewModel>();
         });
+        #endregion
 
+        #region Methods
         private void Begroet()
         {
 
@@ -40,6 +46,6 @@ namespace B04.EE.BlanckeK.ViewModels
                 DependencyService.Get<ITextToSpeech>().Speak("Goeie avond");
             }
         }
-
+        #endregion
     }
 }

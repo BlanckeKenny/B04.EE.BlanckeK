@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace B04.EE.BlanckeK.Interfaces
+﻿namespace B04.EE.BlanckeK.Interfaces
 {
     public interface ITextToSpeech
     {

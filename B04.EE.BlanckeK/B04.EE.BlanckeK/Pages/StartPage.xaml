@@ -1,17 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="clr-namespace:B04.EE.BlanckeK.Pages"
              x:Class="B04.EE.BlanckeK.Pages.StartPage">
     <ContentPage.BackgroundImage>
-        <x:OnPlatform 
-            Android="startpagebackground.jpg" 
-            UWP="Assets/StartPageBackGround.jpg">
-        </x:OnPlatform>
+        <x:OnPlatform Android="startpagebackground.jpg" UWP="Assets/StartPageBackGround.jpg"></x:OnPlatform>
     </ContentPage.BackgroundImage>
     <ScrollView>
     <StackLayout>
             <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <!-- Grid definities -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
                 <ColumnDefinition Width="8*"></ColumnDefinition>
@@ -23,6 +20,7 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
+            <!-- Grid van Start spel button -->
             <Frame Grid.Column="1" Grid.Row="1" VerticalOptions="EndAndExpand" CornerRadius="20" HasShadow="True" BackgroundColor="AliceBlue" BorderColor="DarkGreen">
                 <StackLayout x:Name="StartSpel" Spacing="6" HorizontalOptions="Center" Orientation="Horizontal">
                     <StackLayout.GestureRecognizers>
@@ -39,6 +37,7 @@
                     <Label FontAttributes="Bold" FontSize="16" Text="l" TextColor="DarkOrange"></Label>
                 </StackLayout>
             </Frame>
+            <!-- Grid van Ga verder button -->
             <Frame Grid.Column="1" Grid.Row="2" VerticalOptions="EndAndExpand" BorderColor="DarkGreen" BackgroundColor="AliceBlue" CornerRadius="20">
                 <StackLayout Spacing="6" x:Name="GaVerder" HorizontalOptions="Center" Orientation="Horizontal">
                     <StackLayout.GestureRecognizers>
