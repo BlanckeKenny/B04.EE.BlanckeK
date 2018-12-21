@@ -16,12 +16,14 @@ namespace B04.EE.BlanckeK.ViewModels
         private List<ZoekWoordSpel> _spelLijst = new List<ZoekWoordSpel>();
         private int _teller;
         private int _totaalScore;
+        private readonly ITextToSpeech _speak;
         #endregion
 
         #region Constructor
-        public ZoekHetWoordViewModel(IGameService gameService)
+        public ZoekHetWoordViewModel(IGameService gameService, ITextToSpeech speak)
         {
             GameService = gameService;
+            _speak = speak;
             StartNieuwSpel();
         }
         #endregion
@@ -59,7 +61,7 @@ namespace B04.EE.BlanckeK.ViewModels
             if (antwoord == "Juist") Score = Score + 1;
             HuidigeScore = $"Score: {Score}/{_teller}";
             RaisePropertyChanged(nameof(HuidigeScore));
-            DependencyService.Get<ITextToSpeech>().Speak(antwoord);
+            _speak.Speak(antwoord);
         }
         #endregion
 
@@ -172,7 +174,7 @@ namespace B04.EE.BlanckeK.ViewModels
             base.Init(initData);
             GebruikersNaam = _huidigeGebruiker.Naam;
             _level = _huidigeGebruiker.Level;
-            HuidigeScore = $"Score :{Score}/{_teller}";
+            HuidigeScore = $"Score: {Score}/{_teller}";
         }
         #endregion
     }

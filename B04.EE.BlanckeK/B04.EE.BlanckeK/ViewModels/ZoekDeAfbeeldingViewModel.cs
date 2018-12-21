@@ -13,15 +13,17 @@ namespace B04.EE.BlanckeK.ViewModels
         #region Variabelen
         private Gebruiker _huidigeGebruiker;
         public IGameService GameService;
+        private ITextToSpeech _speak;
         private List<ZoekAfbeeldingSpel> _spelLijst = new List<ZoekAfbeeldingSpel>();
         private int _teller;
         private int _totaalScore;
         #endregion
 
         #region Constructor
-        public ZoekDeAfbeeldingViewModel(IGameService gameService)
+        public ZoekDeAfbeeldingViewModel(IGameService gameService, ITextToSpeech speak)
         {
             GameService = gameService;
+            _speak = speak;
             StartNieuwSpel();
         }
         #endregion
@@ -60,7 +62,7 @@ namespace B04.EE.BlanckeK.ViewModels
             if (antwoord == "Juist") Score = Score + 1;
             HuidigeScore = $"Score: {Score}/{_teller}";
             RaisePropertyChanged(nameof(HuidigeScore));
-            DependencyService.Get<ITextToSpeech>().Speak(antwoord);
+            _speak.Speak(antwoord);
         }
         #endregion
 
@@ -146,7 +148,7 @@ namespace B04.EE.BlanckeK.ViewModels
             base.Init(initData);
             GebruikersNaam = _huidigeGebruiker.Naam;
             _level = _huidigeGebruiker.Level;
-            HuidigeScore = $"Score :{Score}/{_teller}";
+            HuidigeScore = $"Score: {Score}/{_teller}";
         }
         #endregion
 

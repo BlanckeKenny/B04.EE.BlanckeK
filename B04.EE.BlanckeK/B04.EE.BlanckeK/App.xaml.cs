@@ -14,6 +14,7 @@ namespace B04.EE.BlanckeK
         {
             InitializeComponent();
             FreshIOC.Container.Register<IGameService, SpelInMemoryService>();
+            FreshIOC.Container.Register(DependencyService.Get<ITextToSpeech>());
             MainPage = new FreshNavigationContainer(FreshPageModelResolver.ResolvePageModel<StartViewModel>());
         }
 

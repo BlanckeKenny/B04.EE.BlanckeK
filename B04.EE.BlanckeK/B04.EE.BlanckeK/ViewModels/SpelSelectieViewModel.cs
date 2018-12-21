@@ -10,12 +10,14 @@ namespace B04.EE.BlanckeK.ViewModels
     {
         #region variabelen
         private Gebruiker _huidigeGebruiker;
+        private readonly ITextToSpeech _speak;
         #endregion
 
         #region Constructor
-        public SpelSelectieViewModel()
+        public SpelSelectieViewModel(ITextToSpeech speak)
         {
-            DependencyService.Get<ITextToSpeech>().Speak("Kies u speltype");
+            _speak = speak;
+            _speak.Speak("Kies u spel");
         }
         #endregion
 
@@ -23,19 +25,19 @@ namespace B04.EE.BlanckeK.ViewModels
         public ICommand ZoekDeAfBeeldingCommand => new Command(async () =>
         {
             await CoreMethods.PushPageModel<ZoekDeAfbeeldingViewModel>(_huidigeGebruiker);
-            DependencyService.Get<ITextToSpeech>().Speak("Zoek de afbeelding die bij het woord past.");
+            _speak.Speak("Zoek de afbeelding die bij het woord past.");
         });
 
         public ICommand ZoekHetWoordSpelCommand => new Command(async () =>
         {
             await CoreMethods.PushPageModel<ZoekHetWoordViewModel>(_huidigeGebruiker);
-            DependencyService.Get<ITextToSpeech>().Speak("Zoek het woord die bij de afbeelding past.");
+            _speak.Speak("Zoek het woord die bij de afbeelding past.");
         });
 
         public ICommand VulHetWoordAanSpelCommand => new Command(async () =>
         {
             await CoreMethods.PushPageModel<VulHetWoordAanViewModel>(_huidigeGebruiker);
-            DependencyService.Get<ITextToSpeech>().Speak("Kijk naar de afbeelding en vul het woord aan.");
+            _speak.Speak("Kijk naar de afbeelding en vul het woord aan.");
         });
         #endregion
 

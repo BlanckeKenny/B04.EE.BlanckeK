@@ -11,6 +11,13 @@ namespace B04.EE.BlanckeK.ViewModels
     {
         #region variabelen
         readonly int _time = DateTime.Now.Hour;
+        private readonly ITextToSpeech _speak;
+
+        public StartViewModel(ITextToSpeech speak)
+        {
+            _speak = speak;
+        }
+
         #endregion
 
         #region Overrides
@@ -24,7 +31,7 @@ namespace B04.EE.BlanckeK.ViewModels
         #region Commands
         public ICommand StartSpelCommand => new Command(async () =>
         {
-            DependencyService.Get<ITextToSpeech>().Speak("Gelieve u naam en leeftijd in te vullen");
+            _speak.Speak("Gelieve u naam en leeftijd in te vullen");
             await CoreMethods.PushPageModel<GegevensViewModel>();
         });
         #endregion
@@ -35,15 +42,15 @@ namespace B04.EE.BlanckeK.ViewModels
 
             if (_time > 5 && _time <= 10)
             {
-                DependencyService.Get<ITextToSpeech>().Speak("Goeiemorgen");
+                _speak.Speak("Goeiemorgen");
             }
             else if (_time > 10 && _time <= 17)
             {
-                DependencyService.Get<ITextToSpeech>().Speak("Goeiemiddag");
+                _speak.Speak("Goeiemiddag");
             }
             else
             {
-                DependencyService.Get<ITextToSpeech>().Speak("Goeie avond");
+                _speak.Speak("Goeie avond");
             }
         }
         #endregion

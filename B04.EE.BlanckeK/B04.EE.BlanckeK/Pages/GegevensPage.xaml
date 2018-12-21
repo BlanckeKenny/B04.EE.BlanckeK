@@ -23,7 +23,7 @@
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <!-- Inloggrid -->
+                    <!-- Inlog grid -->
                     <Entry x:Name="Naam" Text="{Binding Naam}" TextColor="Accent" PlaceholderColor="Accent" Grid.Row="2" Grid.Column="1" Placeholder="Naam" Keyboard="Text" VerticalOptions="CenterAndExpand" />
                     <Entry x:Name="Leeftijd" Text="{Binding Leeftijd}" TextColor="Accent" PlaceholderColor="Accent" Grid.Row="3" Grid.Column="1" Placeholder="Leeftijd" Keyboard="Numeric" VerticalOptions="CenterAndExpand" />
                     <Button CornerRadius="20" BorderWidth="6" BorderColor="DarkGreen" BackgroundColor="LightGreen" TextColor="IndianRed" Grid.Row="4" Grid.Column="1" Text="Ga verder" Command ="{Binding StartNewGameCommand}"/>
