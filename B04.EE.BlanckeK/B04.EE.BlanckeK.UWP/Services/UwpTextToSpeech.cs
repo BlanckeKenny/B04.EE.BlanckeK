@@ -11,7 +11,7 @@ namespace B04.EE.BlanckeK.UWP.Services
 {
     public class UwpTextToSpeech : ITextToSpeech
     {
-        public async void Speak(string text)
+        public async void SpeakOut(string text)
         {
             try
             {

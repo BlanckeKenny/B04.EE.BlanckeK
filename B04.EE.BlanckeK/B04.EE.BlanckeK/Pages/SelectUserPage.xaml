@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:conv="clr-namespace:B04.EE.BlanckeK.Converters"
+             xmlns:behaviors="clr-namespace:B04.EE.BlanckeK.Behaviors"
+             x:Class="B04.EE.BlanckeK.Pages.SelectUserPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Gebruiker toevoegen" Command="{Binding GoToNewUserScreenCommand}" Icon="+"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.BackgroundImage>
+        <x:OnPlatform Android="startpagebackground.jpg" UWP="Assets/StartPageBackGround.jpg"></x:OnPlatform>
+    </ContentPage.BackgroundImage>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <!-- Deze stacklayout is om ervoor te zorgen dat er geen inhoud over de background image gaat -->
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HeightRequest="180"></StackLayout>
+                
+                <!-- Dit is de eigenlijke inhoud van de pagina -->
+                <ScrollView>
+                    <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="80"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <!-- Definities speelveld -->
+                    <Grid ColumnSpacing="5" RowSpacing="5" Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="8*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <!-- Inhoud speelveld -->
+                            <ListView HasUnevenRows="True" Margin="3" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding AllUsersList}">
+                                <ListView.Behaviors>
+                                    <behaviors:EventToCommandBehavior 
+                                        EventName="ItemTapped"  
+                                        Command="{Binding ShowUserDetails}"
+                                        EventArgsConverter="{StaticResource ItemTappedEventArgsConv}" />
+                                </ListView.Behaviors>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame Padding="0" Margin="5" VerticalOptions="EndAndExpand" CornerRadius="20" HasShadow="True" BackgroundColor="AliceBlue" BorderColor="DarkGreen">
+                                                <StackLayout x:Name="StartSpel" Spacing="6" HorizontalOptions="Center" Orientation="Horizontal">
+                                                    <Label Text="{Binding Name}" FontSize="Medium" TextColor="Accent" HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                </StackLayout>
+                                            </Frame>
+                                        </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </Grid>
+                </ScrollView>
+            </StackLayout>
+
+            <!-- Dit is de footer van de pagina ( niet in de scrolview )-->
+
+            <StackLayout>
+                <StackLayout.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_OnSwiped"></SwipeGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <Grid BackgroundColor="Accent">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="10"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="80"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" Text="{Binding Name}"></Label>
+                    <Label TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="3" Text="{Binding CurrentScore}"></Label>
+                    <Label TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="1" Grid.Column="3" Text="{Binding CurrentLevel}"></Label>
+                    <Frame BorderColor="GreenYellow" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" IsVisible="{Binding PlayerSelected}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="4" CornerRadius="40" BackgroundColor="AliceBlue" Padding="0" >
+                        <Image Aspect="AspectFill" HorizontalOptions="CenterAndExpand" HeightRequest="80" VerticalOptions="CenterAndExpand">
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="ImageSource"
+                                            Android="start.png"
+                                            WinPhone="Assets/start.png">
+                                </OnPlatform>
+                            </Image.Source>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToGameScreenCommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Frame>
+                    <Label HorizontalTextAlignment="Center" FontSize="10" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Text="Swipe om deze speler te verwijderen" TextColor="White"></Label>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

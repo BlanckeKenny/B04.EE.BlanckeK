@@ -2,8 +2,11 @@
 {
     public static class Constants
     {
-        public const string MixAfbeeldingGrids = "MIXAFBEELDINGGRIDS";
-        public const string MixWoordGrids = "MIXWOORDGRIDS";
-        public const string Controleer = "CONTROLEER";
+        public const string MixImageGrids = "MIXIMAGEGRIDS";
+        public const string MixWordGrids = "MIXWORDGRIDS";
+        public const string Validate = "VALIDATE";
+        public const string SqlDbName = "LerenLezen.db3";
+        public const string Correct = "Juist";
+        public const string Wrong = "Fout";
     }
 }

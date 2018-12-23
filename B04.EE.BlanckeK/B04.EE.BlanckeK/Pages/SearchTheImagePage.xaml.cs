@@ -9,10 +9,10 @@ using Xamarin.Forms.Xaml;
 namespace B04.EE.BlanckeK.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ZoekDeAfbeeldingPage : ContentPage
+	public partial class SearchTheImagePage : ContentPage
 	{
         #region Constructor
-        public ZoekDeAfbeeldingPage ()
+        public SearchTheImagePage ()
 		{
 			InitializeComponent ();
         }
@@ -22,7 +22,7 @@ namespace B04.EE.BlanckeK.Pages
 	    protected override void OnAppearing()
 	    {
 	        MixGrids();
-	        MessagingCenter.Subscribe(this, Constants.Constants.MixAfbeeldingGrids, async (ZoekDeAfbeeldingViewModel vm) =>
+	        MessagingCenter.Subscribe(this, Constants.Constants.MixImageGrids, async (SearchTheImageViewModel vm) =>
 	        {
 	            await Task.Delay(0);
 	            MixGrids();
@@ -31,7 +31,7 @@ namespace B04.EE.BlanckeK.Pages
 
 	    protected override void OnDisappearing()
 	    {
-	        MessagingCenter.Unsubscribe<ZoekDeAfbeeldingViewModel>(this, Constants.Constants.MixAfbeeldingGrids);
+	        MessagingCenter.Unsubscribe<SearchTheImageViewModel>(this, Constants.Constants.MixImageGrids);
 	    }
         #endregion
 
@@ -39,8 +39,8 @@ namespace B04.EE.BlanckeK.Pages
 	    private void MixGrids()
 	    {
 	        var rnd = new Random();
-	        List<int> nietGesorteerdeLijst = new List<int> { 0, 1, 2 };
-	        var result = nietGesorteerdeLijst.OrderBy(item => rnd.Next()).ToList();
+	        List<int> unSortedList = new List<int> { 0, 1, 2 };
+	        var result = unSortedList.OrderBy(item => rnd.Next()).ToList();
 	        Image1.SetValue(Grid.ColumnProperty, result[0]);
 	        Image2.SetValue(Grid.ColumnProperty, result[1]);
 	        Image3.SetValue(Grid.ColumnProperty, result[2]);
@@ -50,11 +50,11 @@ namespace B04.EE.BlanckeK.Pages
         #region Events
 	    private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
 	    {
-	        var antwoord = ((Image)sender).AutomationId;
+	        var answer = ((Image)sender).AutomationId;
 	        BindingContext = ((Image)sender).BindingContext;
 	        if (BindingContext == null) return;
-	        ZoekDeAfbeeldingViewModel vm = BindingContext as ZoekDeAfbeeldingViewModel;
-	        vm?.ControleerCommand.Execute(antwoord);
+	        SearchTheImageViewModel vm = BindingContext as SearchTheImageViewModel;
+	        vm?.ValidateSelectionCommand.Execute(answer);
 	        MixGrids();
 	    }
         #endregion

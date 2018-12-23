@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="B04.EE.BlanckeK.Pages.GegevensPage">
+             x:Class="B04.EE.BlanckeK.Pages.NewUserPage">
     <ContentPage.BackgroundImage>
         <x:OnPlatform Android="startpagebackground.jpg" UWP="Assets/StartPageBackGround.jpg"></x:OnPlatform>
     </ContentPage.BackgroundImage>
@@ -9,7 +9,7 @@
         <ScrollView>
             <StackLayout>
                 <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <!-- grid definities -->
+                    <!-- grid definitions -->
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"></ColumnDefinition>
                         <ColumnDefinition Width="8*"></ColumnDefinition>
@@ -21,12 +21,15 @@
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <!-- Inlog grid -->
-                    <Entry x:Name="Naam" Text="{Binding Naam}" TextColor="Accent" PlaceholderColor="Accent" Grid.Row="2" Grid.Column="1" Placeholder="Naam" Keyboard="Text" VerticalOptions="CenterAndExpand" />
-                    <Entry x:Name="Leeftijd" Text="{Binding Leeftijd}" TextColor="Accent" PlaceholderColor="Accent" Grid.Row="3" Grid.Column="1" Placeholder="Leeftijd" Keyboard="Numeric" VerticalOptions="CenterAndExpand" />
-                    <Button CornerRadius="20" BorderWidth="6" BorderColor="DarkGreen" BackgroundColor="LightGreen" TextColor="IndianRed" Grid.Row="4" Grid.Column="1" Text="Ga verder" Command ="{Binding StartNewGameCommand}"/>
+                    <!-- Login grid -->
+                    <Label Text="Naam" TextColor="Accent" Grid.Row="1" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                    <Entry x:Name="Naam" Text="{Binding Name}" TextColor="Accent" PlaceholderColor="Accent" Grid.Row="2" Grid.Column="1" Keyboard="Text" VerticalOptions="CenterAndExpand" />
+                    <Label Text="Leeftijd" TextColor="Accent" HorizontalOptions="CenterAndExpand"  Grid.Row="3" Grid.Column="1" VerticalOptions="CenterAndExpand" />
+                    <Entry x:Name="Leeftijd" Text="{Binding Age}" TextColor="Accent" PlaceholderColor="Accent" Grid.Row="4" Grid.Column="1" Keyboard="Numeric" VerticalOptions="CenterAndExpand" />
+                    <Button CornerRadius="20" BorderWidth="6" BorderColor="DarkGreen" BackgroundColor="LightGreen" TextColor="IndianRed" Grid.Row="5" Grid.Column="1" Text="Ga verder" Command ="{Binding StartNewGameCommand}"/>
                 </Grid>
             </StackLayout>
         </ScrollView>

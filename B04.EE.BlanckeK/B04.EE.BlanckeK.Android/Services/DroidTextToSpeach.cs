@@ -12,7 +12,7 @@ namespace B04.EE.BlanckeK.Droid.Services
         string _toSpeak;
 
 
-        public void Speak(string text)
+        public void SpeakOut(string text)
         {
             _toSpeak = text;
             if (_speaker == null)

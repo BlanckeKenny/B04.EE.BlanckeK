@@ -3,12 +3,12 @@ using FluentValidation;
 
 namespace B04.EE.BlanckeK.Validators
 {
-    public class GebruikerValidator : AbstractValidator<Gebruiker>
+    public class UserValidator : AbstractValidator<User>
     {
         #region Constructor
-        public GebruikerValidator()
+        public UserValidator()
         {
-            RuleFor(gebruiker => gebruiker.Naam)
+            RuleFor(user => user.Name)
                 .NotEmpty()
                 .WithMessage("Gelieve een naam in te vullen")
                 .Length(3, 30)
@@ -16,7 +16,7 @@ namespace B04.EE.BlanckeK.Validators
                 .NotNull()
                 .WithMessage("Gelieve een geldige naam in te vullen");
 
-            RuleFor(gebruiker => gebruiker.Leeftijd)
+            RuleFor(user => user.Age)
                 .NotNull()
                 .WithMessage("Gelieve een geldige leeftijd in te vullen")
                 .GreaterThanOrEqualTo(1)

@@ -55,6 +55,9 @@
     <PackageReference Include="FluentValidation">
       <Version>8.1.2</Version>
     </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.5.231</Version>
+    </PackageReference>
     <PackageReference Include="Xam.Plugins.TextToSpeech">
       <Version>4.0.0.7</Version>
     </PackageReference>
@@ -69,6 +72,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DroidSqLiteConnectionFactory.cs" />
     <Compile Include="Services\DroidTextToSpeach.cs" />
     <Compile Include="SplashActivity.cs" />
   </ItemGroup>
@@ -101,10 +105,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\HelpersLib.cs\HelpersLib.cs.csproj">
-      <Project>{26fb1bdb-84cf-4a65-ae52-f41801149a87}</Project>
-      <Name>HelpersLib.cs</Name>
-    </ProjectReference>
     <ProjectReference Include="..\B04.EE.BlanckeK\B04.EE.BlanckeK.csproj">
       <Project>{30E019AB-BF05-4327-A6CF-C6C46BA061B9}</Project>
       <Name>B04.EE.BlanckeK</Name>
@@ -242,6 +242,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\pandabackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\nameborder.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\start.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

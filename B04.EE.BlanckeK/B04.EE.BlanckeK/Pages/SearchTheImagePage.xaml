@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="B04.EE.BlanckeK.Pages.ZoekDeAfbeeldingPage">
+             x:Class="B04.EE.BlanckeK.Pages.SearchTheImagePage">
     <ContentPage.BackgroundImage>
         <x:OnPlatform Android="pandabackground.jpg" UWP="Assets/pandabackground.jpg"></x:OnPlatform>
     </ContentPage.BackgroundImage>
@@ -17,28 +17,29 @@
                 <!-- Definities speelveld -->
                 <Grid ColumnSpacing="5" RowSpacing="5" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition x:Name="ImageColumn1" Width="*"></ColumnDefinition>
-                        <ColumnDefinition x:Name="ImageColumn2" Width="*"></ColumnDefinition>
-                        <ColumnDefinition x:Name="ImageColumn3" Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition x:Name ="ImageRow1" Height="*"></RowDefinition>
-                        <RowDefinition x:Name ="ImageRow2" Height="auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
                     </Grid.RowDefinitions>
+
                     <!-- Inhoud speelveld -->
-                    <Image HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Aspect="AspectFit" x:Name="Image1" Grid.Row="0" Source="{Binding JuisteAfbeelding}" AutomationId="Juist">
+                    <Image HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Aspect="AspectFit" x:Name="Image1" Grid.Row="0" Source="{Binding CorrectImage}" AutomationId="Juist">
                         <Image.GestureRecognizers><TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped"/></Image.GestureRecognizers>
                     </Image>
 
-                    <Image HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Aspect="AspectFit" x:Name="Image2" Grid.Row="0" Source="{Binding VerkeerdeAfbeelding2}" AutomationId="Fout">
+                    <Image HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Aspect="AspectFit" x:Name="Image2" Grid.Row="0" Source="{Binding WrongImage1}" AutomationId= "Fout">
                         <Image.GestureRecognizers><TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped"/></Image.GestureRecognizers>
                     </Image>
 
-                    <Image HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Aspect="AspectFit" x:Name="Image3" Grid.Row="0" Source="{Binding VerkeerdeAfbeelding1}" AutomationId="Fout">
+                    <Image HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Aspect="AspectFit" x:Name="Image3" Grid.Row="0" Source="{Binding WrongImage2}" AutomationId="Fout">
                         <Image.GestureRecognizers><TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped"/></Image.GestureRecognizers>
                     </Image>
 
-                    <Label Margin="0,100,0,0"  BackgroundColor="LightGray" x:Name="WoordLabel" FontAttributes="Bold" FontSize="Large" VerticalTextAlignment="End" HorizontalTextAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Woord}"></Label>
+                    <Label Margin="0,100,0,0"  BackgroundColor="LightGray" x:Name="WoordLabel" FontAttributes="Bold" FontSize="Large" VerticalTextAlignment="End" HorizontalTextAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Word}"></Label>
                 </Grid>
 
                 <!-- Definities Scorebord -->
@@ -54,9 +55,9 @@
                         <RowDefinition Height="Auto"></RowDefinition>
                     </Grid.RowDefinitions>
                     <!-- Inhoud scorebord -->
-                    <Label TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" Text="{Binding GebruikersNaam}"></Label>
-                    <Label TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="2" Text="{Binding HuidigeScore}"></Label>
-                    <Label TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="1" Grid.Column="2" Text="{Binding HuidigLevel}"></Label>
+                    <Label TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" Text="{Binding UserName}"></Label>
+                    <Label TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="2" Text="{Binding CurrentScore}"></Label>
+                    <Label TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="1" Grid.Column="2" Text="{Binding CurrentLevel}"></Label>
                 </Grid>
             </Grid>
         </StackLayout>

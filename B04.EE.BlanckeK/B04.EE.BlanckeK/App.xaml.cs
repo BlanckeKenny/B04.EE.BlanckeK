@@ -1,5 +1,6 @@
 ﻿using B04.EE.BlanckeK.Interfaces;
 using B04.EE.BlanckeK.Interfaces.Mock;
+using B04.EE.BlanckeK.SqLite;
 using B04.EE.BlanckeK.ViewModels;
 using FreshMvvm;
 using Xamarin.Forms;
@@ -13,8 +14,9 @@ namespace B04.EE.BlanckeK
         public App()
         {
             InitializeComponent();
-            FreshIOC.Container.Register<IGameService, SpelInMemoryService>();
+            FreshIOC.Container.Register<IGameService, GameInMemoryService>();
             FreshIOC.Container.Register(DependencyService.Get<ITextToSpeech>());
+            FreshIOC.Container.Register<IUserService>(new UserSqLiteService());
             MainPage = new FreshNavigationContainer(FreshPageModelResolver.ResolvePageModel<StartViewModel>());
         }
 
