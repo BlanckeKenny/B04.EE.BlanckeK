@@ -26,9 +26,9 @@
                         <RowDefinition Height="auto"></RowDefinition>
                     </Grid.RowDefinitions>
                     <!-- Inhoud speelveld -->
-                    <Button Clicked="CorrectWord_OnClicked" x:Name="CorrectWord" Grid.Row="1" Margin="0,0,0,50" BackgroundColor="red" FontAttributes="Bold" FontSize="Large" Text="{Binding CorrectWord}" AutomationId="Juist"></Button>
-                    <Button Clicked="CorrectWord_OnClicked" x:Name="WrongWord1" Grid.Row="1" Margin="0,0,0,50"  BackgroundColor="Green" FontAttributes="Bold" FontSize="Large" Text="{Binding WrongWord1}" AutomationId="Fout"></Button>
-                    <Button Clicked="CorrectWord_OnClicked" x:Name="WrongWord2" Grid.Row="1" Margin="0,0,0,50"  BackgroundColor="Blue" FontAttributes="Bold" FontSize="Large" Text="{Binding WrongWord2}" AutomationId="Fout"></Button>
+                    <Button Clicked="CorrectWord_OnClicked" x:Name="CorrectWord" Grid.Row="1" Margin="0,0,0,50" BackgroundColor="LightGray" FontAttributes="Bold" FontSize="Large" Text="{Binding CorrectWord}" AutomationId="Juist"></Button>
+                    <Button Clicked="CorrectWord_OnClicked" x:Name="WrongWord1" Grid.Row="1" Margin="0,0,0,50"  BackgroundColor="LightGray" FontAttributes="Bold" FontSize="Large" Text="{Binding WrongWord1}" AutomationId="Fout"></Button>
+                    <Button Clicked="CorrectWord_OnClicked" x:Name="WrongWord2" Grid.Row="1" Margin="0,0,0,50"  BackgroundColor="LightGray" FontAttributes="Bold" FontSize="Large" Text="{Binding WrongWord2}" AutomationId="Fout"></Button>
                     <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,100" VerticalOptions="EndAndExpand" Aspect="AspectFit" x:Name="Image1" Source="{Binding CorrectImage}"></Image>
                 </Grid>
                 

@@ -8,5 +8,7 @@
         public const string SqlDbName = "LerenLezen.db3";
         public const string Correct = "Juist";
         public const string Wrong = "Fout";
+        public const int RequestStorageId = 0;
+        public const int RequestSpeechId = 1;
     }
 }

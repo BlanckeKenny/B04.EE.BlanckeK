@@ -13,7 +13,7 @@ namespace B04.EE.BlanckeK.UWP.Services
     {
         public SQLiteConnection CreateConnection(string databaseFileName)
         {
-            string path = ApplicationData.Current.LocalFolder.Path;
+            var path = ApplicationData.Current.LocalFolder.Path;
             path = Path.Combine(path, databaseFileName);
             return new SQLiteConnection(path,false);
         }

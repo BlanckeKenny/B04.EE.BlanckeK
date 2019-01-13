@@ -1,5 +1,9 @@
-﻿using Android.Speech.Tts;
+﻿using System.Linq;
+using Android.Content;
+using Android.Speech.Tts;
+using Android.Support.V4.App;
 using B04.EE.BlanckeK.Interfaces;
+using Java.Util;
 using Xamarin.Forms;
 
 
@@ -18,6 +22,7 @@ namespace B04.EE.BlanckeK.Droid.Services
             if (_speaker == null)
             {
                 _speaker = new TextToSpeech(MainActivity.Instance, this);
+                _speaker.SetLanguage(Locale.Default);
             }
             else
             {

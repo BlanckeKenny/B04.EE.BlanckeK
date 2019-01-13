@@ -13,15 +13,13 @@ namespace B04.EE.BlanckeK.UWP.Services
     {
         public async void SpeakOut(string text)
         {
+            MediaElement mediaElement = new MediaElement();
+
             try
             {
                 using (SpeechSynthesizer synthesizer = new SpeechSynthesizer())
                 {
-                    synthesizer.Options.IncludeWordBoundaryMetadata = true;
-                    synthesizer.Options.IncludeSentenceBoundaryMetadata = true;
-                    MediaElement mediaElement = new MediaElement();
                     var stream = await synthesizer.SynthesizeTextToStreamAsync(text);
-
                     mediaElement.SetSource(stream, stream.ContentType);
                     mediaElement.Play();
                 }

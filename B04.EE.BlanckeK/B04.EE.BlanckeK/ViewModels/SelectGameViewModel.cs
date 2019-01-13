@@ -43,11 +43,6 @@ namespace B04.EE.BlanckeK.ViewModels
             _speak.SpeakOut("Zoek het woord die bij de afbeelding past.");
         });
 
-        public ICommand CompleteTheWordCommand => new Command(async () =>
-        {
-            await CoreMethods.PushPageModel<CompleteTheWordViewModel>(_currentUser);
-            _speak.SpeakOut("Kijk naar de afbeelding en vul het woord aan.");
-        });
         #endregion
     }
 }
